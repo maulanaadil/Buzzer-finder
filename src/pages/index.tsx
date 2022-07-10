@@ -2,7 +2,7 @@ import Axios from "axios";
 import type { NextPage } from "next";
 import Head from "next/head";
 import { FormEvent, useState } from "react";
-import { Button, Input } from "../components";
+import { Button, Card, Input } from "../components";
 import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
@@ -22,9 +22,7 @@ const Home: NextPage = () => {
         "Content-Type": "application/json",
       },
     })
-      .then((res) => {
-        console.log(res);
-      })
+      .then((res) => {})
       .catch((err) => {
         console.log(err);
       });

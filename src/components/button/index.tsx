@@ -1,12 +1,12 @@
-import React from 'react';
-import styles from './index.module.css';
-import { ButtonTypes, Props } from './types';
+import React from "react";
+import styles from "./index.module.css";
+import { ButtonTypes, Props } from "./types";
 
 const getButtonVariant = (variant: ButtonTypes) => {
   switch (variant) {
-    case 'primary':
+    case "primary":
       return styles.primary;
-    case 'secondary':
+    case "secondary":
       return styles.secondary;
     default:
       return styles.primary;
@@ -18,6 +18,7 @@ export default function Button({
   variant,
   onClick,
   children,
+  as,
   ...otherprops
 }: Props) {
   return (

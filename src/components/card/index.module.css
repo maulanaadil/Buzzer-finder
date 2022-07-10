@@ -1,0 +1,50 @@
+.card {
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.card .cardImageContainer {
+  display: inline-block;
+  background-color: #ababab;
+  margin: 10px;
+  border-radius: 50%;
+}
+
+.card .cardImageContainer img {
+  color: white;
+  vertical-align: middle;
+  text-align: center;
+  border-radius: 50%;
+  border: transparent;
+  height: 100px;
+  width: 100px;
+}
+
+.card .cardBody {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.card .cardBody .username {
+  font-size: 30px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.card .cardBody .followers {
+  font-size: 16px;
+  font-weight: 400px;
+  color: #ababab;
+  margin-bottom: 0;
+  margin-left: 5px;
+  margin-top: 6px;
+}
+
+.card button {
+  padding: 5px 55px;
+  font-size: 24px;
+}
