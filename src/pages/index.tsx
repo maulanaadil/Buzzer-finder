@@ -1,12 +1,21 @@
 import Axios from "axios";
 import type { NextPage } from "next";
 import Head from "next/head";
-import { FormEvent, useState } from "react";
-import { Button, Card, Input } from "../components";
+import Router from "next/router";
+import React, { FormEvent, useState } from "react";
+
+import { SearchBuzzer } from "@/modules";
+
+import { useBuzzerStore } from "../services/zustand";
 import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
   const [keyword, setKeyword] = useState("");
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setKeyword(e.target.value);
+    useBuzzerStore.getState().setSearchResult(e.target.value);
+  };
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -22,9 +31,13 @@ const Home: NextPage = () => {
         "Content-Type": "application/json",
       },
     })
-      .then((res) => {})
+      .then((res) => {
+        useBuzzerStore.getState().setBuzzer(res.data);
+        return Router.push("/result");
+      })
       .catch((err) => {
         console.log(err);
+        alert("Tidak ada hashtag tersebut!");
       });
   };
 
@@ -37,23 +50,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.mainContainer}>
-        <form onSubmit={handleSubmit}>
-          <h2 className={styles.title}>Buzzer Finder</h2>
-          <h4 className={styles.desc}>
-            Find influencers and increase your engagment!
-          </h4>
-          <div className={styles.main}>
-            <Input
-              type='text'
-              name='keyword'
-              placeholder='Enter keyword e.g #jakarta'
-              onChange={(e) => setKeyword(e.target.value)}
-            />
-            <Button type='submit' variant='primary' onClick={() => {}}>
-              Search
-            </Button>
-          </div>
-        </form>
+        <SearchBuzzer handleChange={handleChange} handleSubmit={handleSubmit} />
       </main>
     </div>
   );
