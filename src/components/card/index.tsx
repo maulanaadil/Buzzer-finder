@@ -13,7 +13,9 @@ export default function Card({ src, username, followers, linkTo }: Props) {
       </div>
       <div className={styles.cardBody}>
         <p className={styles.username}>@{username}</p>
-        <p className={styles.followers}>Followers: ${followers}</p>
+        {followers && (
+          <p className={styles.followers}>Followers: {followers}</p>
+        )}
       </div>
       <a href={linkTo}>
         <Button variant='primary'>Go</Button>
