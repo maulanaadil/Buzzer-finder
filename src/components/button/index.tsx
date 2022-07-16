@@ -19,12 +19,13 @@ export default function Button({
   onClick,
   children,
   as,
+  className,
   ...otherprops
 }: Props) {
   return (
     <button
       type={type}
-      className={`${styles.button} ${getButtonVariant(variant)}`}
+      className={`${styles.button} ${getButtonVariant(variant)} ${className}`}
       onClick={onClick}
       {...otherprops}
     >

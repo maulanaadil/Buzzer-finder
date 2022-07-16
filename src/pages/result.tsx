@@ -16,12 +16,14 @@ const Result: NextPage = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.btnBackContainer}>
-        <Button variant='primary' onClick={handleClickGoBackPage}>
-          Back
-        </Button>
-        <h1 className={styles.title}>Buzzer Finder</h1>
-      </div>
+      <Button
+        variant='primary'
+        onClick={handleClickGoBackPage}
+        className={styles.btnBack}
+      >
+        Back
+      </Button>
+      <h1 className={styles.title}>Buzzer Finder</h1>
       <h2 className={styles.searchResult}>{search_result}</h2>
       <div className={styles.cardContainer}>
         {buzzer?.data[0] &&

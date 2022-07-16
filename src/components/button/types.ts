@@ -6,6 +6,7 @@ export type Props = ComponentPropsWithoutRef<"button"> & {
   children: ReactNode;
   onClick?: () => void;
   as?: React.ElementType<any>;
+  className?: string;
 };
 
 export type ButtonTypes = "primary" | "secondary";
