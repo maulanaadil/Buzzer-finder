@@ -25,7 +25,7 @@ const Home: NextPage = () => {
 
     Axios({
       method: "post",
-      url: "//35.198.243.157/buzzerfinder",
+      url: "https://rubahsaktidev.me/buzzerfinder",
       data: formData,
       headers: {
         "Content-Type": "application/json",
