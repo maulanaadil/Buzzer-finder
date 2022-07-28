@@ -1,10 +1,10 @@
-import { NextPage } from "next";
-import React from "react";
+import { NextPage } from 'next';
+import React from 'react';
 
-import styles from "../styles/Result.module.css";
-import { useBuzzerStore } from "../services/zustand";
-import { Card, Button } from "@/components";
-import { useRouter } from "next/router";
+import styles from '../styles/Result.module.css';
+import { useBuzzerStore } from '../services/zustand';
+import { Card, Button } from '@/components';
+import { useRouter } from 'next/router';
 
 const Result: NextPage = () => {
   const { buzzer, search_result } = useBuzzerStore();
@@ -28,7 +28,7 @@ const Result: NextPage = () => {
       <div className={styles.cardContainer}>
         {buzzer?.data[0] &&
           buzzer?.data[0].map((value) => (
-            <Card username={value.account_name} />
+            <Card username={value.account_name} key={value.account_name} />
           ))}
       </div>
     </div>
